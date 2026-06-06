@@ -2,9 +2,9 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-DB_URL="${DATABASE_URL:-}"
+DB_URL="${DATABASE_URL:-postgresql://miguelgonzalez@localhost:5432/dmrb}"
 
-if [[ -z "$DB_URL" ]]; then
+if [[ "$DB_URL" == "postgresql://miguelgonzalez@localhost:5432/dmrb" ]] && ! psql "$DB_URL" -c 'SELECT 1' >/dev/null 2>&1; then
   LEGACY_ENV="$ROOT/../dmrb-legacy/.env"
   if [[ -f "$LEGACY_ENV" ]]; then
     DB_URL="$(grep -E '^DATABASE_URL=' "$LEGACY_ENV" | head -1 | cut -d= -f2- | tr -d '"')"
@@ -12,7 +12,7 @@ if [[ -z "$DB_URL" ]]; then
 fi
 
 if [[ -z "$DB_URL" ]]; then
-  echo "Set DATABASE_URL, or create ../dmrb-legacy/.env with DATABASE_URL=..."
+  echo "Set DATABASE_URL or create a local Postgres database named dmrb."
   exit 1
 fi
 
