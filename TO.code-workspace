@@ -1,0 +1,11 @@
+{
+  "folders": [
+    { "name": "TO (meta)", "path": "." },
+    { "name": "Workflow Dmrb", "path": "Workflow Dmrb" },
+    { "name": "total ui", "path": "total ui" },
+    { "name": "uploads", "path": "uploads" }
+  ],
+  "settings": {
+    "git.detectSubmodules": true
+  }
+}
