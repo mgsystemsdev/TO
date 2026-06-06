@@ -1,0 +1,9 @@
+[submodule "Workflow Dmrb"]
+	path = Workflow Dmrb
+	url = git@github.com:MG-Systems-Dev/Make-Ready-Operations.git
+[submodule "total-ui"]
+	path = total ui
+	url = git@github.com:MG-Systems-Dev/TOTAL-UI.git
+[submodule "uploads"]
+	path = uploads
+	url = git@github.com:MG-Systems-Dev/Upload_to.git
